@@ -1,35 +1,36 @@
 <template>
   <el-container class="layout-page">
     <el-header class="layout-header">
-         <Header/>
+        <Header/>
     </el-header>
-    <el-container class="layout-container">
-      <el-main>
-        <router-view></router-view>
-      </el-main>
-      <Slide/>
-    </el-container>
+     <router-view></router-view>
   </el-container>
 </template>
 
 <script>
 // @ is an alias to /src
-import { Header, Slide } from './components'
+import { Header,Slide} from './components'
 export default {
   name: 'Layout',
   components: {
     Header,
-    Slide
+    Slide  
+  },
+  data() {
+    return {
+      showSlide: false
+    }
+  },
+  created(){
+    console.log('---',this.$router.meta)
   }
 }
 </script>
 
 <style lang="less" scoped>
 .layout-page{
-  .layout-container{
-    padding-left: 50px;
-    padding-right: 50px;
-    background-color: cadetblue;
+  .layout-header{
+    padding: 0px;
   }
 }
 </style>
