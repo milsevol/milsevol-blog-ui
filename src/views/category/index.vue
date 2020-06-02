@@ -1,8 +1,8 @@
 <template>
     <FullMain>
       <div class="category-page">
-          <el-row>
-              <el-col class="home-banner-left" :span="4">
+          <el-row :gutter="20">
+              <el-col class="home-banner-left" :span="3">
                   <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
                       <el-radio-button :label="false">展开</el-radio-button>
                       <el-radio-button :label="true">收起</el-radio-button>
@@ -40,10 +40,93 @@
                   </el-menu-item>
                   </el-menu>
               </el-col>
-              <el-col :span="4">
+              <el-col class="category-box":span="5">
+                <div class="category-list">
                    <ul>
-                     <li>21212</li>
-                   </ul>
+                    <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                      <span>2020/03/05</span>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                      <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                      <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                     <li>
+                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
+                    </li>
+                  </ul>
+                </div>
               </el-col>
               <el-col :span="16">
                   <el-card class="box-card">
@@ -58,10 +141,52 @@
 </template>
 
 <style lang="less" scoped>
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
+  .category-page{
+    .home-banner-left{
+      .el-menu-vertical-demo:not(.el-menu--collapse) {
+        width: 150px;
+        min-height: 400px;
+        .el-menu-item{
+          min-width: 0px;
+        }
+      }
+    }
+    .category-box{
+      .category-list{
+          border: solid;
+          border-width: 1px;
+          background-color: #fff;
+          border-color: #e2e0e0b0;
+        ul{
+          overflow: auto;
+          height: 650px;
+          li{
+            color: #7dbcfc;
+            height: 38px;
+            line-height: 38px;
+            font-size: 15px;
+            a{
+              margin-left: 10px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 66%;
+              display: inline-block;
+              color: #7b7878;
+              font-family: "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+            }
+            span{
+                float: right;
+                font-size: 10px;
+                color: #9e9c9c;
+                margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
   }
+
 </style>
 
 <script>
@@ -74,16 +199,6 @@ export default {
     data() {
       return {
         isCollapse: true,
-        activities: [{
-          content: '活动按期开始',
-          timestamp: '2018-04-15'
-        }, {
-          content: '通过审核',
-          timestamp: '2018-04-13'
-        }, {
-          content: '创建成功',
-          timestamp: '2018-04-11'
-        }]
       };
     },
     methods: {
@@ -94,7 +209,6 @@ export default {
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       }
- 
     }
   }
 </script>

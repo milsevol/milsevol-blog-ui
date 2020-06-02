@@ -4,17 +4,21 @@
         <Header/>
     </el-header>
      <router-view></router-view>
+     <el-footer class="layout-footer">
+       <Foot/>
+     </el-footer>
   </el-container>
 </template>
 
 <script>
 // @ is an alias to /src
-import { Header,Slide} from './components'
+import { Header,Slide,Foot} from './components'
 export default {
   name: 'Layout',
   components: {
     Header,
-    Slide  
+    Slide,
+    Foot 
   },
   data() {
     return {
@@ -30,6 +34,13 @@ export default {
 <style lang="less" scoped>
 .layout-page{
   .layout-header{
+    padding: 0px;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  .layout-footer{
     padding: 0px;
   }
 }

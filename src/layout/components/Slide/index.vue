@@ -7,7 +7,7 @@
            <el-row class="slide-row">
              <el-col :span="24">
                <el-card class="box-card">
-                  <h2 class="box-header">  <el-divider class="slide-header-divider" direction="vertical"></el-divider><span>作者名片</span></h2>
+                  <h2 class="box-header">  <el-divider class="slide-header-divider" direction="vertical"></el-divider><span>关于</span></h2>
                   <div class="box-content">
                     <div class="indtroduce-img">
                       <img data-v-5954443c="" src="http://demopicture.moguit.cn//blog/admin/jpg/2020/4/15/1586946598174.jpg">
@@ -43,7 +43,7 @@
             <el-row class="slide-row">
              <el-col :span="24">
                <el-card class="recommend-card box-card">
-                  <h2 class="box-header">  <el-divider class="slide-header-divider" direction="vertical"></el-divider><span>站长推荐</span></h2>
+                  <h2 class="box-header">  <el-divider class="slide-header-divider" direction="vertical"></el-divider><span>推荐</span></h2>
                   <div class="box-content">
                         <ul>
 
@@ -131,6 +131,7 @@ export default {
 
 <style lang="less" scoped>
    .slide-container{
+    margin-top: 60px;
     padding-left: 50px;
     padding-right: 50px;
     .right-box{

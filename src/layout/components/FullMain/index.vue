@@ -14,6 +14,6 @@ export default {
 
 <style lang="less" scoped>
   .full-main{
-    
+    margin-top: 60px;
   }
 </style>
