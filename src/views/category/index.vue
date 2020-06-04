@@ -2,7 +2,7 @@
     <FullMain>
       <div class="category-page">
           <el-row :gutter="20">
-              <el-col class="home-banner-left" :span="3">
+              <el-col v-loading="loading" class="home-banner-left" :span="3">
                   <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
                       <el-radio-button :label="false">展开</el-radio-button>
                       <el-radio-button :label="true">收起</el-radio-button>
@@ -157,6 +157,9 @@
           border-width: 1px;
           background-color: #fff;
           border-color: #e2e0e0b0;
+          &::-webkit-scrollbar {
+             width: 0 !important
+          }
         ul{
           overflow: auto;
           height: 650px;
@@ -190,7 +193,8 @@
 </style>
 
 <script>
-import { FullMain } from '@/layout/components'
+import { FullMain } from '@/layout/components';
+import { getInfoLabelList } from '@/api/info/label';
 export default {
     name: 'Category',
      components: {
@@ -198,10 +202,22 @@ export default {
      },
     data() {
       return {
+        // 遮罩层
+        loading: true,
+        // 查询参数
+        queryParams:[],
         isCollapse: true,
       };
     },
+    created(){
+      this.getMenuList();
+    },
     methods: {
+      getMenuList(){
+        getInfoLabelList(this.queryParams).then(response => {
+          this.loading = false;
+        });
+      },
       handleOpen(key, keyPath) {
         this.drawer = true
         console.log(key, keyPath);
