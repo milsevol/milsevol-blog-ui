@@ -10,4 +10,34 @@ const service = axios.create({
   timeout: 30000
 })
 
+// request拦截器
+service.interceptors.request.use(
+  config => {
+    if (true) {
+      config.headers['Authorization'] = 'Bearer test'
+    }
+    return config
+  },
+  error => {
+    console.log(error)
+    Promise.reject(error)
+  }
+)
+
+// 响应拦截
+// 响应拦截器
+service.interceptors.response.use(res => {
+  console.log(res);  
+},
+error => {
+  console.log('err' + error)
+  Message({
+    message: error.message,
+    type: 'error',
+    duration: 5 * 1000
+  })
+  return Promise.reject(error)
+}
+)
+
 export default service
