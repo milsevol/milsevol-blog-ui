@@ -27,7 +27,9 @@ service.interceptors.request.use(
 // 响应拦截
 // 响应拦截器
 service.interceptors.response.use(res => {
-  console.log(res);  
+  console.log('响应拦截'); 
+  console.log(res.data);  
+  return res.data;
 },
 error => {
   console.log('err' + error)

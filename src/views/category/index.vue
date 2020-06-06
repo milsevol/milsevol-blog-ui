@@ -6,39 +6,8 @@
                   <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
                       <el-radio-button :label="false">展开</el-radio-button>
                       <el-radio-button :label="true">收起</el-radio-button>
-                      </el-radio-group>
-                  <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-                  <el-submenu index="1">
-                      <template slot="title">
-                      <i class="el-icon-location"></i>
-                      <span slot="title">导航一</span>
-                      </template>
-                      <el-menu-item-group>
-                      <span slot="title">分组一</span>
-                      <el-menu-item index="1-1">选项1</el-menu-item>
-                      <el-menu-item index="1-2">选项2</el-menu-item>
-                      </el-menu-item-group>
-                      <el-menu-item-group title="分组2">
-                      <el-menu-item index="1-3">选项3</el-menu-item>
-                      </el-menu-item-group>
-                      <el-submenu index="1-4">
-                      <span slot="title">选项4</span>
-                      <el-menu-item index="1-4-1">选项1</el-menu-item>
-                      </el-submenu>
-                  </el-submenu>
-                  <el-menu-item index="2">
-                      <i class="el-icon-menu"></i>
-                      <span slot="title">导航二</span>
-                  </el-menu-item>
-                  <el-menu-item index="3" disabled>
-                      <i class="el-icon-document"></i>
-                      <span slot="title">导航三</span>
-                  </el-menu-item>
-                  <el-menu-item index="4">
-                      <i class="el-icon-setting"></i>
-                      <span slot="title">导航四</span>
-                  </el-menu-item>
-                  </el-menu>
+                  </el-radio-group>
+                  <side-bar :menuList="menuList"></side-bar>
               </el-col>
               <el-col class="category-box":span="5">
                 <div class="category-list">
@@ -194,11 +163,13 @@
 
 <script>
 import { FullMain } from '@/layout/components';
+import  SideBar from '@/components/SideBar';
 import { getInfoLabelList } from '@/api/info/label';
 export default {
     name: 'Category',
      components: {
-        FullMain  
+        FullMain,
+        SideBar 
      },
     data() {
       return {
@@ -207,14 +178,17 @@ export default {
         // 查询参数
         queryParams:[],
         isCollapse: true,
+        menuList:[]
       };
     },
     created(){
-      this.getMenuList();
+      this.getList();
     },
     methods: {
-      getMenuList(){
+      getList(){
         getInfoLabelList(this.queryParams).then(response => {
+          console.log('--response--',response);
+          this.menuList = response.menus;
           this.loading = false;
         });
       },
