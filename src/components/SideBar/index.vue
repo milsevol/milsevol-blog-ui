@@ -2,11 +2,7 @@
   <div class="sidebar-container">
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
-        router
-        mode="vertical"
-        background-color="#304156"
-        text-color="#bfcbd9"
-        active-text-color="#409EFF">
+        mode="vertical">
       <side-bar-item v-for="menu in menuList" :key="menu.path" :item="menu" />
     </el-menu>
   </el-scrollbar>
@@ -27,9 +23,7 @@ export default {
 </script>
 <style lang="less">
   .sidebar-container {
-    position: fixed;
     transition: width 0.28s;
-    width: 180px !important;
     height: 100%;
     font-size: 0px;
     bottom: 0;
@@ -64,9 +58,6 @@ export default {
       border: none;
       height: 100%;
       width: 100% !important;
-    }
-    .is-active > .el-submenu__title{
-        color: #f4f4f5!important;
     }
   }
 </style>
