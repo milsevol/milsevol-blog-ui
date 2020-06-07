@@ -23,7 +23,7 @@
               <el-col class="article-detail" :span="16">
                   <el-card class="box-card">
                      <div style="height:800px;backgroup-color:#000">
-                       <div v-if="showItem" class="box-header">
+                       <div v-if="showItem.id" class="box-header">
                          <h2>{{showItem.infoTitle}}</h2>
                          <p>
                             作者:<span class="detail-tip">{{showItem.createUser}}</span> 
@@ -83,17 +83,14 @@ export default {
         this.getInfoListForm.labelId = id;
         getInfoList(this.getInfoListForm).then(response => {
           this.infoList = response;
-          console.log('getInfoList',this.infoList);
         })
       },
       showContent(item){
-        console.log('showItem',item)
         this.showItem = item;
       }
     },
     watch: {
       isCollapse(newValue,oldValue){
-        console.log('newValue',newValue);
       }
     }
   }

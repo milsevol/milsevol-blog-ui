@@ -9,3 +9,12 @@ export function getInfoLabelList(data){
     })
 }
 
+// 查询标
+export function getInfoLabel(data){
+    return request({
+        url:'/info/label',
+        method:'get',
+        params:data
+    })
+}
+

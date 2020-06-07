@@ -6,6 +6,10 @@ Mock.mock(`${baseURL}/info/label/list`, 'get', () => {
   return label.getInfoLabelList
 })
 
+Mock.mock(`${baseURL}/info/label`, 'get', () => {
+  return label.getInfoLabel
+})
+
 Mock.mock(`${baseURL}/info/list`, 'get', () => {
   return info.getInfoList
 })
