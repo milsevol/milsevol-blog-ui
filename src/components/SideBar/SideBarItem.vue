@@ -1,15 +1,15 @@
 <template>
   <div v-if="item.children">
     <template v-if="item.children.length == 0">
-        <el-menu-item :index="item.path">
-          <i class="el-icon-menu"></i>
+        <el-menu-item :index="item.id">
+          <i v-if="item.level=='1'" class="el-icon-menu"></i>
           {{item.title}}
         </el-menu-item>
     </template>
 
-    <el-submenu v-else :index="item.path">
+    <el-submenu v-else :index="item.id">
       <template slot="title" >
-        <i class="el-icon-menu"></i>
+        <i v-if="item.level=='1'" class="el-icon-menu"></i>
         {{item.title}}
       </template>
 
@@ -17,9 +17,8 @@
         <side-bar-item
           v-if="child.children&&child.children.length>0"
           :item="child"
-          :key="child.path"/>
-        <el-menu-item v-else :key="child.path" :index="child.path">
-          <i class="el-icon-location"></i>
+          :key="child.id"/>
+        <el-menu-item v-else :key="child.id" :index="child.id">
           {{child.title}}
         </el-menu-item>
       </template>

@@ -2,8 +2,11 @@
   <div class="sidebar-container">
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
-        mode="vertical">
-      <side-bar-item v-for="menu in menuList" :key="menu.path" :item="menu" />
+        mode="vertical"
+        :collapse="collapse"
+        @open="handleOpen"
+        @select="handleSelect">
+      <side-bar-item v-for="menu in menuList" :key="menu.id" :item="menu" />
     </el-menu>
   </el-scrollbar>
   </div>
@@ -12,11 +15,28 @@
 import SideBarItem from '@/components/SideBar/SideBarItem';
 export default {
   name:'SideBar',
+  data(){
+    return {
+
+    }
+  },
   components: { SideBarItem },
   props:{
     menuList: {
       type: Array,
       required: true
+    },
+    collapse: {
+      type: Boolean,
+      required: true
+    }
+  },
+  methods: {
+    handleOpen(key,keyPath){
+      console.log(key);
+    },
+    handleSelect(key){
+      this.$emit('selectId',key)
     }
   }
 }

@@ -7,100 +7,33 @@
                       <el-radio-button :label="false">展开</el-radio-button>
                       <el-radio-button :label="true">收起</el-radio-button>
                   </el-radio-group>
-                  <side-bar :menuList="menuList"></side-bar>
+                  <side-bar @selectId="getSelectId" :menuList="menuList" :collapse="isCollapse"></side-bar>
               </el-col>
               <el-col class="category-box":span="5">
                 <div class="category-list">
                    <ul>
-                    <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                      <span>2020/03/05</span>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                      <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                      <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
-                     <li>
-                      <a href="http://www.baidu.com">圣诞节福克斯的开放时间段</a>
-                    </li>
+                      <li v-for="(item,idx) in infoList" :key="item.id">
+                        <!-- <a @click="showContent(item)" >{{item.infoTitle}}</a> -->
+                          <el-link :underline="false"  @click="showContent(item)" type="primary">{{item.infoTitle}}</el-link>
+                          <span>{{item.createTime|dateSplit(0)}}</span>
+                      </li>
                   </ul>
                 </div>
               </el-col>
-              <el-col :span="16">
+              <el-col class="article-detail" :span="16">
                   <el-card class="box-card">
                      <div style="height:800px;backgroup-color:#000">
+                       <div v-if="showItem" class="box-header">
+                         <h2>{{showItem.infoTitle}}</h2>
+                         <p>
+                            作者:<span class="detail-tip">{{showItem.createUser}}</span> 
+                            创建时间:<span class="detail-tip">{{showItem.createTime}}</span> 
+                            最近修改时间:<span class="detail-tip">{{showItem.createTime}}</span>
+                         </p>
+                       </div>
+                       <div class="box-body">
 
+                       </div>
                      </div>
                   </el-card>
               </el-col>
@@ -108,6 +41,63 @@
       </div>
     </FullMain>
 </template>
+
+<script>
+import { FullMain } from '@/layout/components';
+import  SideBar from '@/components/SideBar';
+import { getInfoLabelList } from '@/api/info/label';
+import { getInfoList } from '@/api/info/info';
+export default {
+    name: 'Category',
+     components: {
+        FullMain,
+        SideBar 
+     },
+    data() {
+      return {
+        // 遮罩层
+        loading: true,
+        // 查询参数
+        queryParams:[],
+        infoList:[],
+        getInfoListForm:{
+          labelId:null,
+        },
+        isCollapse: true,
+        menuList:[],
+        showItem:{}
+      };
+    },
+    created(){
+      this.getList();
+      this.getSelectId("12");
+    },
+    methods: {
+      getList(){
+        getInfoLabelList(this.queryParams).then(response => {
+          this.menuList = response.menus;
+          this.loading = false;
+        });
+      },
+      getSelectId(id){
+        this.getInfoListForm.labelId = id;
+        getInfoList(this.getInfoListForm).then(response => {
+          this.infoList = response;
+          console.log('getInfoList',this.infoList);
+        })
+      },
+      showContent(item){
+        console.log('showItem',item)
+        this.showItem = item;
+      }
+    },
+    watch: {
+      isCollapse(newValue,oldValue){
+        console.log('newValue',newValue);
+      }
+    }
+  }
+</script>
 
 <style lang="less" scoped>
   .category-page{
@@ -146,8 +136,13 @@
               display: inline-block;
               color: #7b7878;
               font-family: "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+              cursor: pointer;
             }
             span{
+                width: 28%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 float: right;
                 font-size: 10px;
                 color: #9e9c9c;
@@ -157,48 +152,21 @@
         }
       }
     }
-  }
-
-</style>
-
-<script>
-import { FullMain } from '@/layout/components';
-import  SideBar from '@/components/SideBar';
-import { getInfoLabelList } from '@/api/info/label';
-export default {
-    name: 'Category',
-     components: {
-        FullMain,
-        SideBar 
-     },
-    data() {
-      return {
-        // 遮罩层
-        loading: true,
-        // 查询参数
-        queryParams:[],
-        isCollapse: true,
-        menuList:[]
-      };
-    },
-    created(){
-      this.getList();
-    },
-    methods: {
-      getList(){
-        getInfoLabelList(this.queryParams).then(response => {
-          console.log('--response--',response);
-          this.menuList = response.menus;
-          this.loading = false;
-        });
-      },
-      handleOpen(key, keyPath) {
-        this.drawer = true
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
+    .article-detail{
+      .box-card{
+        .box-header{
+          text-align: center;
+          p{
+            margin-top: 10px;
+            color: #9a9898;
+            font-size: 13px;
+            .detail-tip{
+              margin-right: 10px;
+            }
+          }
+        }
       }
     }
   }
-</script>
+
+</style>

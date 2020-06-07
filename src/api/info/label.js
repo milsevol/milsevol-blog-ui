@@ -8,3 +8,4 @@ export function getInfoLabelList(data){
         params:data
     })
 }
+
