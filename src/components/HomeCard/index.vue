@@ -1,6 +1,6 @@
 <template>
      <el-card class="home-card-components box-card" shadow="hover">
-            <div slot="header" class="clearfix card-header">
+            <div @click="gotoCategory(labelId)" slot="header" class="clearfix card-header">
                 <span>{{infoLabel.title}}</span>
                 <el-button class="more-button" style="float: right; padding: 3px 0" type="text">更多</el-button>
             </div>
@@ -73,6 +73,10 @@ export default {
           this.infoList = response;
           this.firstInfo = this.infoList[0];
         });
+    },
+    gotoCategory(labelId){
+        console.log('---labelId--',labelId)
+         this.$router.push({name:'category',params: {labelId:labelId}}) // 只能用 name
     }
   }
 }

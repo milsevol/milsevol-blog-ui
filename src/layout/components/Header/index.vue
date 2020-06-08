@@ -1,6 +1,6 @@
 <template>
-     <el-menu router :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-        <el-menu-item  :index="item.menuUrl" v-for="(item,idx) in menuDataList" > 
+     <el-menu router  :default-active="$route.path" mode="horizontal" @select="handleSelect">
+        <el-menu-item  :key="idx" :index="item.menuUrl" v-for="(item,idx) in menuDataList" > 
            {{item.menuName}}
         </el-menu-item>
       </el-menu>

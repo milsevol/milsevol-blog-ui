@@ -19,7 +19,7 @@ const routes = [
       {
         path: 'category',
         component: () => import('@/views/category/index'),
-        name: '分类'
+        name: 'category'
       }
     ]
   },

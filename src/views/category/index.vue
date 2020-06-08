@@ -58,7 +58,7 @@ export default {
         // 遮罩层
         loading: true,
         // 查询参数
-        queryParams:[],
+        getInfoLabelListForm:{},
         infoList:[],
         getInfoListForm:{
           labelId:null,
@@ -69,12 +69,16 @@ export default {
       };
     },
     created(){
+      console.log('this.$route.params.labelId',this.$route.params.labelId);
+      this.getInfoLabelListForm = {
+       // labelId: this.$route.params.labelId
+      }
       this.getList();
       this.getSelectId("12");
     },
     methods: {
       getList(){
-        getInfoLabelList(this.queryParams).then(response => {
+        getInfoLabelList(this.getInfoLabelListForm).then(response => {
           this.menuList = response.menus;
           this.loading = false;
         });
