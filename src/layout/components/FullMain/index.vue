@@ -8,12 +8,15 @@
 
 <script>
 export default {
-  name: 'full-main'
+  name: 'FullMain'
 }
 </script>
 
 <style lang="less" scoped>
   .full-main{
-    margin-top: 60px;
+    margin-top: 80px;
+    .el-main{
+      padding: 0px;
+    }
   }
 </style>

@@ -9,7 +9,7 @@ const routes = [
     path: '/',
     name: 'Layout',
     component: Layout,
-    redirect: '/home',
+    redirect: '/introduce',
     children: [
       {
         path: 'home',
@@ -20,6 +20,14 @@ const routes = [
         path: 'category',
         component: () => import('@/views/category/index'),
         name: 'category'
+      },
+      {
+        path: 'introduce',
+        component: () => import('@/views/introduce/index'),
+        name: 'introduce',
+        meta: {
+          title: 'milsevol运营系统'
+        }
       }
     ]
   },

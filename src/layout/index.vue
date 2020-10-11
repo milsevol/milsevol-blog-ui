@@ -35,7 +35,7 @@ export default {
 .layout-page{
   .layout-header{
     padding: 0px;
-    height: 60px;
+    height: 80px;
     position: fixed;
     width: 100%;
     z-index: 1000;

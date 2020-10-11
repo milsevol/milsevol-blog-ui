@@ -131,7 +131,7 @@ export default {
 
 <style lang="less" scoped>
    .slide-container{
-    margin-top: 60px;
+    margin-top: 80px;
     padding-left: 50px;
     padding-right: 50px;
     .right-box{
