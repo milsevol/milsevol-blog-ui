@@ -19,18 +19,6 @@
     <el-menu-item index="home">我的博客</el-menu-item>
     <el-menu-item index="about">关于</el-menu-item>
   </el-menu>
-  <el-dialog
-    title="提示"
-    :visible.sync="dialogVisible"
-    width="30%"
-    >
-    <span>这是一段信息</span>
-    <span slot="footer" class="dialog-footer">
-      <el-button @click="dialogVisible = false">取 消</el-button>
-      <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-    </span>
-  </el-dialog>
-
   </div>
 </template>
 <script>
@@ -45,7 +33,6 @@ export default {
       image: {
         headerLogo: headerLogo,
       },
-      dialogVisible: false,
     };
   },
   methods: {
@@ -62,6 +49,13 @@ export default {
         this.$notify({
           title: "抱歉",
           message: "无权限查看",
+        });
+      }
+
+      if (key === "mp") {
+        this.$alert("<div><img style='height:200px' src='http://mmbiz.qpic.cn/mmbiz_jpg/fPLDt6wq5mNhZT6sWajbicRdfKGqHbNIJjJ4B9hYw3YP5PQvSxib3Tkt8JnF8psvENGGMmiaRIkU19DXcrtLuiax2A/0'/> <p>扫描测试二维码可快速体验相关功能</p></div></div>", "测试公众号二维码", {
+          dangerouslyUseHTMLString: true,
+          center: true,
         });
       }
       //console.log(key, keyPath);
