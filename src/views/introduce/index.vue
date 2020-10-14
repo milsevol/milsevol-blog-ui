@@ -80,7 +80,8 @@
         </div>
       </div>
       <div class="qrCode">
-        <img :src="imge.qrCode" />
+        <img src="http://mmbiz.qpic.cn/mmbiz_jpg/fPLDt6wq5mNhZT6sWajbicRdfKGqHbNIJjJ4B9hYw3YP5PQvSxib3Tkt8JnF8psvENGGMmiaRIkU19DXcrtLuiax2A/0" />
+        <h2>扫测试号，快速体验</h2>
       </div>
     </div>
   </FullMain>
@@ -94,7 +95,6 @@ import banner3 from "@/assets/image/introduce/banner3.jpg";
 import banner4 from "@/assets/image/introduce/banner4.jpg";
 import detail1 from "@/assets/image/introduce/detail1.png";
 import detail2 from "@/assets/image/introduce/detail2.png";
-import qrCodeImg from "@/assets/image/introduce/qrCode.png";
 export default {
   name: "Introduce",
   components: {
@@ -110,8 +110,7 @@ export default {
           { id: "4", url: banner4 },
         ],
         detail1: detail1,
-        detail2: detail2,
-        qrCode: qrCodeImg,
+        detail2: detail2
       },
     };
   },
@@ -252,11 +251,18 @@ export default {
   }
   .qrCode {
     width: 138px;
-    height: 172px;
+    height: 165px;
     position: fixed;
     top: 20%;
     right: 40px;
     z-index: 98;
+    background-color: #ffffff;
+    text-align: center;
+    border: 1px solid #d4d4d6;
+    h2{
+      font-size: 14px;
+      font-weight: 200;
+    }
   }
 }
 </style>
