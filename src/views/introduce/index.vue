@@ -31,7 +31,7 @@
               <ul>
                 <li>SpringCloud微服务</li>
                 <li>vue,element-ui前后端分离</li>
-                <li>Nacos+OpenFeign+SpringCloudGateway</li>
+                <li>Nacos+OpenFeign+Gateway</li>
                 <li>任务调度系统xxl-job</li>
                 <li>微信开发Java SDK：WxJava</li>
                 <li>mysql主从复制、读写分离</li>
@@ -41,16 +41,16 @@
 
           <div class="card">
             <div class="card-header header3">
-              <h1>便捷开发</h1>
+              <h1>敏捷开发</h1>
             </div>
             <div class="card-body">
               <ul>
-                <li>完善的微信公众号管理</li>
-                <li>支持小程序基础开发</li>
-                <li>多方式的消息推送</li>
-                <li>活动运营，抽奖、竞猜、任务</li>
-                <li>客户分组、人物分群</li>
-                <li>优秀的任务调度系统</li>
+                <li>流行友好的技术体系，轻松上手</li>
+                <li>简单便捷的微服务，插拔式开发</li>
+                <li>网关、限流、熔断铸就高可用系统</li>
+                <li>直接使用或者快速二次开发</li>
+                <li>版本可持续迭代，不断进行演化</li>
+                <li>全方位多维度大数据分析</li>
               </ul>
             </div>
           </div>
@@ -80,7 +80,7 @@
         </div>
       </div>
       <div class="qrCode">
-        <img src="http://mmbiz.qpic.cn/mmbiz_jpg/fPLDt6wq5mNhZT6sWajbicRdfKGqHbNIJjJ4B9hYw3YP5PQvSxib3Tkt8JnF8psvENGGMmiaRIkU19DXcrtLuiax2A/0" />
+        <img src="/qrCode.jpg" />
         <h2>扫测试号，快速体验</h2>
       </div>
     </div>

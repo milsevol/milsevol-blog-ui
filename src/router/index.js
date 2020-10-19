@@ -9,7 +9,7 @@ const routes = [
     path: '/',
     name: 'Layout',
     component: Layout,
-    redirect: '/introduce',
+    redirect: '/index.html',
     children: [
       {
         path: 'home',
@@ -22,7 +22,7 @@ const routes = [
         name: 'category'
       },
       {
-        path: 'introduce',
+        path: 'index.html',
         component: () => import('@/views/introduce/index'),
         name: 'introduce',
         meta: {
