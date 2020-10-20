@@ -9,7 +9,10 @@
     text-color="#fff"
     @select="handleSelect"
   >
-    <el-menu-item index="logo" class="header-logo"><img :src="image.headerLogo"></img></el-menu-item>
+    <el-menu-item index="logo" class="header-logo">
+      <img :src="image.logo"></img>
+        <span>小米林</span>
+      </el-menu-item>
     <el-menu-item index="index.html">首页</el-menu-item>
     <el-submenu index="demo">
       <template slot="title"><span>在线演示</span></template>
@@ -22,7 +25,7 @@
   </div>
 </template>
 <script>
-import headerLogo from "@/assets/header-logo.jpg";
+import logo from "@/assets/logo.jpg";
 export default {
   name: "Header",
   data() {
@@ -31,7 +34,7 @@ export default {
       activeIndex2: "1",
       menuDataList: [],
       image: {
-        headerLogo: headerLogo,
+        logo: logo,
       },
       activeMenu: "index.html",
     };
@@ -109,9 +112,14 @@ export default {
     text-align: center;
     img {
       height: 60px;
-      border-radius: 10px;
+      border-radius: 60px;
       position: relative;
       left: 12%;
+    }
+    span{
+       position: relative;
+       left: 20%;
+       font-size: 28px;
     }
   }
   .el-menu-item {
