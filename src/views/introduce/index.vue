@@ -80,7 +80,7 @@
         </div>
       </div>
       <div class="qrCode">
-        <img src="/qrCode.jpg" />
+        <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGd8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZFgwbFZXeXJjWUQxMDAwME0wM2YAAgRwKJ5fAwQAAAAA" />
         <h2>扫测试号，快速体验</h2>
       </div>
     </div>

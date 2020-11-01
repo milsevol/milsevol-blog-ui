@@ -59,7 +59,7 @@ export default {
 
       if (key === "mp") {
         this.$alert(
-          "<div><img style='height:200px' src='qrCode.jpg'/> <p>扫描测试二维码可快速体验相关功能</p></div></div>",
+          "<div><img style='height:200px' src='https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGd8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZFgwbFZXeXJjWUQxMDAwME0wM2YAAgRwKJ5fAwQAAAAA'/> <p>扫描测试二维码可快速体验相关功能</p></div></div>",
           "测试公众号二维码",
           {
             dangerouslyUseHTMLString: true,
